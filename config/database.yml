@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: 123456
+  host: localhost
+
+development:
+  <<: *default
+  database: master_rails_development
+test:
+  <<: *default
+  database: master_rails_test
+
+production:
+  <<: *default
+  database: master_rails_production
+  username: master_rails
+  password: <%= ENV['MASTER_RAILS_DATABASE_PASSWORD'] %>
